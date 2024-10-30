@@ -16,18 +16,29 @@ class BaseLearner:
     def __init__(self, learning_rate: float, discount_factor: float,
                  epsilon_start: float, epsilon_decay: float,
                  epsilon_min: float, n_bins: int):
-        self.environment = gym.make('CartPole-v1')
+        self.environment = gym.make('LunarLander-v3')
+        
+        # Define bounds for discretization
         self.upper_bounds = [
-            self.environment.observation_space.high[0],
-            0.5,
-            self.environment.observation_space.high[2],
-            math.radians(50)
+            1.5,  # x position
+            1.5,  # y position
+            5.0,  # x velocity
+            5.0,  # y velocity
+            math.pi,  # angle
+            5.0,  # angular velocity
+            1.0,  # left leg contact
+            1.0   # right leg contact
         ]
+        
         self.lower_bounds = [
-            self.environment.observation_space.low[0],
-            -0.5,
-            self.environment.observation_space.low[2],
-            -math.radians(50)
+            -1.5,  # x position
+            -1.5,  # y position
+            -5.0,  # x velocity
+            -5.0,  # y velocity
+            -math.pi,  # angle
+            -5.0,  # angular velocity
+            0.0,  # left leg contact
+            0.0   # right leg contact
         ]
         
         # Learning parameters
@@ -49,10 +60,13 @@ class BaseLearner:
         for i, (lower, upper, obs) in enumerate(zip(self.lower_bounds, 
                                                   self.upper_bounds, 
                                                   observation)):
-            bin_size = (upper - lower) / self.n_bins
-            bin_number = int((obs - lower) / bin_size)
-            bin_number = max(0, min(self.n_bins - 1, bin_number))
-            bins.append(bin_number)
+            if i in [6, 7]:  # Binary features (leg contact)
+                bins.append(1 if obs > 0.5 else 0)
+            else:
+                bin_size = (upper - lower) / self.n_bins
+                bin_number = int((obs - lower) / bin_size)
+                bin_number = max(0, min(self.n_bins - 1, bin_number))
+                bins.append(bin_number)
         return tuple(bins)
     
     def _select_action(self, state: Tuple) -> int:
@@ -61,7 +75,7 @@ class BaseLearner:
             return self.environment.action_space.sample()
         
         if state not in self.q_table:
-            self.q_table[state] = [0.0, 0.0]
+            self.q_table[state] = [0.0] * 4  # 4 possible actions in LunarLander
         
         return np.argmax(self.q_table[state])
 
@@ -100,8 +114,9 @@ class QLearner(BaseLearner):
             new_state = self._discretize_state(new_observation)
             
             # Apply reward shaping
-            angle_penalty = abs(new_state[2]) * 0.1
-            modified_reward = reward - angle_penalty
+            angle_penalty = abs(new_observation[4]) * 0.1  # Penalize tilting
+            velocity_penalty = (abs(new_observation[2]) + abs(new_observation[3])) * 0.1  # Penalize high velocity
+            modified_reward = reward - angle_penalty - velocity_penalty
             
             self._update_q_value(state, action, new_state, modified_reward)
             state = new_state
@@ -117,9 +132,9 @@ class QLearner(BaseLearner):
                        next_state: Tuple, reward: float) -> None:
         """Update Q-value using Q-learning update rule."""
         if state not in self.q_table:
-            self.q_table[state] = [0.0, 0.0]
+            self.q_table[state] = [0.0] * 4
         if next_state not in self.q_table:
-            self.q_table[next_state] = [0.0, 0.0]
+            self.q_table[next_state] = [0.0] * 4
         
         current_q = self.q_table[state][action]
         next_max_q = max(self.q_table[next_state])
@@ -183,9 +198,9 @@ class SARSALearner(BaseLearner):
                        next_state: Tuple, next_action: int, reward: float) -> None:
         """Update Q-value using SARSA update rule."""
         if state not in self.q_table:
-            self.q_table[state] = [0.0, 0.0]
+            self.q_table[state] = [0.0] * 4  # 4 possible actions in LunarLander
         if next_state not in self.q_table:
-            self.q_table[next_state] = [0.0, 0.0]
+            self.q_table[next_state] = [0.0] * 4  # 4 possible actions in LunarLander
         
         current_q = self.q_table[state][action]
         next_q = self.q_table[next_state][next_action]
@@ -256,13 +271,13 @@ class ReinforcementLearningExperiment:
         }
 
 
-def main():
-    # Set random seed for reproducibility
-    np.random.seed(42)
+# def main():
+#     # Set random seed for reproducibility
+#     np.random.seed(42)
     
-    # Run algorithm comparison
-    comparison = AlgorithmComparison(num_runs=5, max_episodes=1000)
-    comparison.run_comparison()
+#     # Run algorithm comparison
+#     comparison = AlgorithmComparison(num_runs=5, max_episodes=1000)
+#     comparison.run_comparison()
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

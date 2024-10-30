@@ -1,0 +1,19 @@
+{
+    "q_learning_Custom": {
+        "mean_final_reward": -45.279870239612016,
+        "std_final_reward": 0.0,
+        "max_reward": 286.23535088261127,
+        "min_reward": -457.63372691046186,
+        "mean_convergence_episode": 123.0,
+        "q_table_size": 2093,
+        "parameters": {
+            "learning_rate": 0.1,
+            "discount_factor": 0.99,
+            "epsilon_start": 1.0,
+            "epsilon_decay": 0.997,
+            "epsilon_min": 0.01,
+            "n_bins": 8,
+            "name": "Custom"
+        }
+    }
+}

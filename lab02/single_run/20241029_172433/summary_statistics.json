@@ -1,0 +1,22 @@
+{
+    "algorithm": "q_learning",
+    "statistics": {
+        "mean_reward": -95.46518627922465,
+        "std_reward": 120.37995703785123,
+        "max_reward": 277.59520210194694,
+        "min_reward": -592.5965623378625,
+        "final_100_episodes_mean": -40.534393711742254,
+        "q_table_size": 3508,
+        "training_time_seconds": 70.83593988418579,
+        "time_per_episode_ms": 14.167187976837157
+    },
+    "parameters": {
+        "learning_rate": 0.1,
+        "discount_factor": 0.99,
+        "epsilon_start": 1.0,
+        "epsilon_decay": 0.9999,
+        "epsilon_min": 0.01,
+        "n_bins": 8,
+        "name": "Improved v2"
+    }
+}

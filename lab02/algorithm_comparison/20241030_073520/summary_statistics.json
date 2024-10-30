@@ -1,0 +1,14 @@
+{
+    "q_learning": {
+        "mean_final_reward": -123.47314354308688,
+        "std_final_reward": 21.409838764962668,
+        "max_reward": 303.82436904119504,
+        "mean_convergence_episode": 10000.0
+    },
+    "sarsa": {
+        "mean_final_reward": -116.18430204611437,
+        "std_final_reward": 13.99910408187644,
+        "max_reward": 280.8606982630617,
+        "mean_convergence_episode": 10000.0
+    }
+}

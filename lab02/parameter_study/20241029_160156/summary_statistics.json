@@ -1,0 +1,26 @@
+{
+    "Baseline": {
+        "mean_final_reward": -128.7955182678697,
+        "std_final_reward": 40.24528656222655,
+        "max_reward": 308.54479983672337,
+        "mean_convergence_episode": 1000.0
+    },
+    "Conservative": {
+        "mean_final_reward": -228.50265352417142,
+        "std_final_reward": 18.839464382520507,
+        "max_reward": 269.27052042613604,
+        "mean_convergence_episode": 1000.0
+    },
+    "Aggressive": {
+        "mean_final_reward": -93.66378087088871,
+        "std_final_reward": 6.442833032850545,
+        "max_reward": 288.5430799033579,
+        "mean_convergence_episode": 1000.0
+    },
+    "Fine-Grained": {
+        "mean_final_reward": -177.93609605541408,
+        "std_final_reward": 7.0748986617825675,
+        "max_reward": 289.869259592545,
+        "mean_convergence_episode": 1000.0
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "sarsa_Custom": {
+        "mean_final_reward": -78.87608461819075,
+        "std_final_reward": 0.0,
+        "max_reward": 272.7724507400523,
+        "min_reward": -620.9597710697358,
+        "mean_convergence_episode": 1608.0,
+        "q_table_size": 4503,
+        "parameters": {
+            "learning_rate": 0.1,
+            "discount_factor": 0.99,
+            "epsilon_start": 1.0,
+            "epsilon_decay": 0.997,
+            "epsilon_min": 0.01,
+            "n_bins": 8,
+            "name": "Custom"
+        }
+    }
+}

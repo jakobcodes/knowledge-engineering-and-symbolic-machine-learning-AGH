@@ -1,0 +1,9 @@
+{
+    "learning_rate": 0.1,
+    "discount_factor": 0.95,
+    "epsilon_start": 0.5,
+    "epsilon_decay": 0.999,
+    "epsilon_min": 0.1,
+    "n_bins": 10,
+    "name": "Fine-Grained"
+}

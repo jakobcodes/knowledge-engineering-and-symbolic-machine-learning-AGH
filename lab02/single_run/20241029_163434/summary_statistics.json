@@ -1,0 +1,20 @@
+{
+    "algorithm": "sarsa",
+    "statistics": {
+        "mean_reward": -113.80908646126166,
+        "std_reward": 109.00017809698765,
+        "max_reward": 272.7724507400523,
+        "min_reward": -620.9597710697358,
+        "final_100_episodes_mean": -78.87608461819075,
+        "q_table_size": 4503
+    },
+    "parameters": {
+        "learning_rate": 0.1,
+        "discount_factor": 0.99,
+        "epsilon_start": 1.0,
+        "epsilon_decay": 0.997,
+        "epsilon_min": 0.01,
+        "n_bins": 8,
+        "name": "Custom"
+    }
+}
