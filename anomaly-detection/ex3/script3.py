@@ -1,6 +1,6 @@
 import numpy as np
-from ex2.solution2 import detect as detect2
-from ex3.solution3 import detect as detect3
+from solution2 import detect as detect2
+from solution3 import detect as detect3
 from utils import report_results_2d
 
 # load data
