@@ -1,5 +1,5 @@
 import numpy as np
-from ex4.solution4 import detect_cov, detect_ocsvm, detect_iforest, detect_lof
+from solution4 import detect_cov, detect_ocsvm, detect_iforest, detect_lof
 from utils import report_results_2d
 
 # load data
