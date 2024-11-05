@@ -1,5 +1,5 @@
 import numpy as np
-from ex2.solution2 import detect
+from solution2 import detect
 from utils import report_results_2d
 
 # load data
