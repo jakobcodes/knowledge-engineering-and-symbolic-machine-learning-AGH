@@ -87,7 +87,7 @@ encoded_imgs_fashion = encoder.predict(x_test_fashion)
 decoded_imgs_fashion = decoder.predict(encoded_imgs_fashion)
 
 # collect reconstruction errors
-from ex5.solution5 import reconstruction_errors, detect, calc_threshold
+from solution5 import reconstruction_errors, detect, calc_threshold
 from utils import print_results
 
 reconstruction_errors_mnist = reconstruction_errors(x_test, decoded_imgs)
