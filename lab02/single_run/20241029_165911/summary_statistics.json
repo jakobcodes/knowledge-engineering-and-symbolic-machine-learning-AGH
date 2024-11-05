@@ -1,0 +1,20 @@
+{
+    "algorithm": "q_learning",
+    "statistics": {
+        "mean_reward": -170.1625629883382,
+        "std_reward": 109.4693515544698,
+        "max_reward": 286.08962339297324,
+        "min_reward": -617.4598875546158,
+        "final_100_episodes_mean": -162.13029707949795,
+        "q_table_size": 8034
+    },
+    "parameters": {
+        "learning_rate": 0.05,
+        "discount_factor": 0.99,
+        "epsilon_start": 1.0,
+        "epsilon_decay": 0.999,
+        "epsilon_min": 0.05,
+        "n_bins": 10,
+        "name": "Custom"
+    }
+}

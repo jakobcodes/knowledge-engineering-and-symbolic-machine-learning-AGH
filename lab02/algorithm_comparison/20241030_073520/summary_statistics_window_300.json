@@ -1,0 +1,36 @@
+{
+    "q_learning": {
+        "mean_final_reward": -123.47314354308688,
+        "std_final_reward": 21.409838764962668,
+        "max_reward": 303.82436904119504,
+        "min_reward": -729.4160057040882,
+        "mean_convergence_episode": 10000.0,
+        "q_table_size": 1071,
+        "parameters": {
+            "learning_rate": 0.3,
+            "discount_factor": 0.9,
+            "epsilon_start": 1.0,
+            "epsilon_decay": 0.95,
+            "epsilon_min": 0.01,
+            "n_bins": 4,
+            "name": "Default"
+        }
+    },
+    "sarsa": {
+        "mean_final_reward": -116.18430204611437,
+        "std_final_reward": 13.99910408187644,
+        "max_reward": 280.8606982630617,
+        "min_reward": -713.594661816117,
+        "mean_convergence_episode": 10000.0,
+        "q_table_size": 1042,
+        "parameters": {
+            "learning_rate": 0.3,
+            "discount_factor": 0.9,
+            "epsilon_start": 1.0,
+            "epsilon_decay": 0.95,
+            "epsilon_min": 0.01,
+            "n_bins": 4,
+            "name": "Default"
+        }
+    }
+}

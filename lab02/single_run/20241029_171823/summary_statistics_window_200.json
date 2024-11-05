@@ -1,0 +1,19 @@
+{
+    "q_learning_Improved": {
+        "mean_final_reward": -196.71237287507566,
+        "std_final_reward": 0.0,
+        "max_reward": 112.1035677939739,
+        "min_reward": -512.0334594962328,
+        "mean_convergence_episode": 1000.0,
+        "q_table_size": 2426,
+        "parameters": {
+            "learning_rate": 0.001,
+            "discount_factor": 0.99,
+            "epsilon_start": 1.0,
+            "epsilon_decay": 0.9995,
+            "epsilon_min": 0.01,
+            "n_bins": 12,
+            "name": "Improved"
+        }
+    }
+}
