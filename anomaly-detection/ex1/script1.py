@@ -1,5 +1,5 @@
 import numpy as np
-from ex1.solution1 import detect
+from solution1 import detect
 from utils import print_results
 
 # load data
