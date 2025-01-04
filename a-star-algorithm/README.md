@@ -22,8 +22,6 @@ The implementation is a Python implementation of the A* algorithm. The implement
 - Heuristic function
 - Priority queue management
 
-Let's break this down into manageable tasks:
-
 1. **State Representation**
    - Create a class to represent the puzzle board (4x4 grid)
    - Implement methods to manipulate the board state
